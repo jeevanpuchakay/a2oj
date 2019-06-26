@@ -1,0 +1,3 @@
+ToolSet: 1.0 (local)Options: 
+
+Options:-DCMAKE_CXX_COMPILER=/home/jeevan/Documents/mingw/mingw64/bin/gcc-ar.exe
