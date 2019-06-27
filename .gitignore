@@ -2,7 +2,9 @@
 cmake-build-debug
 a.out
 CMakeLists.txt
-.idea/*
+*.idea
 !*.cpp
 !main.cpp
+*.xml
+*.iml
 
