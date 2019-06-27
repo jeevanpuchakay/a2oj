@@ -9,7 +9,13 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="922b3678-9e56-4dba-a6a6-2d7d9f7cc394" name="Default Changelist" comment="" />
+    <list default="true" id="032d6dd9-f094-404f-8ccb-e7774750529a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../FindTheMarble/.idea/FindTheMarble.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FindTheMarble/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FindTheMarble/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FindTheMarble/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RoadSideTrees!4Qusetion/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../RoadSideTrees!4Qusetion/.idea/workspace.xml" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,8 +36,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="317">
-              <caret line="20" column="16" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
+            <state relative-caret-position="56">
+              <caret line="19" column="1" lean-forward="true" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -51,7 +57,7 @@
   <component name="ProjectConfigurationFiles">
     <option name="files">
       <list>
-        <option value="$PROJECT_DIR$/.idea/RoadSideTrees!4Qusetion.iml" />
+        <option value="$PROJECT_DIR$/.idea/OrInAMatrix.iml" />
         <option value="$PROJECT_DIR$/.idea/misc.xml" />
         <option value="$PROJECT_DIR$/.idea/vcs.xml" />
         <option value="$PROJECT_DIR$/.idea/modules.xml" />
@@ -75,8 +81,6 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="ToolWindowCMake.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -99,29 +103,30 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="922b3678-9e56-4dba-a6a6-2d7d9f7cc394" name="Default Changelist" comment="" />
-      <created>1561494537385</created>
+      <changelist id="032d6dd9-f094-404f-8ccb-e7774750529a" name="Default Changelist" comment="" />
+      <created>1561553610979</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1561494537385</updated>
-      <workItem from="1561494540373" duration="1023000" />
+      <updated>1561553610979</updated>
+      <workItem from="1561553613155" duration="3409000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1023000" />
+    <option name="totallyTimeSpent" value="3409000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24958494" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="CMake" weight="0.32963374" />
       <window_info anchor="bottom" id="Database Changes" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.32963374" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="bottom" id="CMake" show_stripe_button="false" weight="0.32963374" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -144,8 +149,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="20" column="16" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
+        <state relative-caret-position="56">
+          <caret line="19" column="1" lean-forward="true" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
         </state>
       </provider>
     </entry>
