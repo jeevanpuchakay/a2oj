@@ -1,0 +1,119 @@
+
+
+Array of object
+
+Input : [A, B, C, D ] => .A,B,C all of these are objects 
+Output : max of these objects 
+
+compareTo function available on these object
+A.compareTo(B) -1, 0, 1 for less than, equal and greater than 
+
+If A > B, B > C    A > C or A < C ( So transitive property of compareTo doesn't hold )
+
+object getMax(obj objects[]){
+    int n=objects.size();
+    bool flag=false;
+    for(int i=0;i<n;i++){
+        flag=false;
+        for(int j=0;i<n;j++){
+            flag|=(objects[i].compareTo(objects[j])<1);
+            if(flag)break;
+        }
+        if(flag==false)return objects[i];
+     }
+     return NULL;
+}  
+
+
+[ A, B, C, D ] 
+
+A == B, A > C , A > D => What is the maximum 
+[ A, B, C, D ] 
+[A,....,B,....D]
+
+A>B, 
+
+Object getMax(obj objects[]){
+    int n=objects.size();
+    int flag;
+    if(n==0)return NULL;
+    else if(n==1)return objects[0];
+    int max=0;
+    for(int i=1;i<n;i++){
+        flag=objects[max].compareTo(objects[i]);
+        if(flag==-1)
+        max=i;
+     }
+    
+     for(int i=0;i<n;i++){
+     if(objects[max].compareTo(objects[i])==-1)
+         return NULL;
+     }
+     return objects[max];    
+        
+         
+}  
+
+
+string go(index,input,last="")
+{
+    if(open bracket)
+    return last+go(index+1,input,"");
+    else if(alphabet)
+    return go(index+1,input,last+alphabet)
+    else{
+        return n* last;
+        }
+}
+    
+
+
+Input: (ab(xy)2)3 -> abxyxy|abxyxy|abxyxy
+Output: abxyxyabxyxyabxyxy
+
+temp=(a(bcd)2)3;
+temp=a(b)2+a(b)2+a(b)2;
+temp=ab
+(ab(2))a
+
+string getActualString(string compressed){
+    int n=compressed.size(),count=0;
+    if(n<=1)return compressed;
+    stack<string> stack;
+    string ans="",temp="",last="",baseString="";
+    for(int i=0;i<n;i++){
+        if(compressed[i]=='('){
+            if(last!="")
+            stack.push(last);
+            last="";
+            stack.push(compressed[i]);
+          }
+        else if(compressed[i]==')'){
+            count=0;
+            i++;
+            while((i<n)&&(compressed[i]>='0')&&(compressed[i]<='9')
+            {
+                count*=10;
+                count+=(compressed[i]-'0');
+            }
+            temp=baseString="";
+            while((stack.empty()==false)&&(stack.top
+            if(count==0)stack.push();
+            while(count-->0){
+                temp+=baseString;
+            }
+            stack.pop();
+            stack.push(temp);
+            last="";
+        }
+        else{
+        last+=compressed[i];
+        }
+      }   
+ 
+1. clean code 
+2. disccusiing the corner cases before hand
+3. try to talk as much as you can
+4. the motto of interview is 
+5. Improve the pace at which I right code
+

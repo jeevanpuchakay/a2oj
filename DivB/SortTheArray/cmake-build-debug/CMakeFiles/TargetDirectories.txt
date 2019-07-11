@@ -1,3 +1,0 @@
-C:/Users/Jeevan-PC/Documents/GitHub/a2oj/DivB/SortTheArray/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-C:/Users/Jeevan-PC/Documents/GitHub/a2oj/DivB/SortTheArray/cmake-build-debug/CMakeFiles/SortTheArray.dir
-C:/Users/Jeevan-PC/Documents/GitHub/a2oj/DivB/SortTheArray/cmake-build-debug/CMakeFiles/edit_cache.dir
