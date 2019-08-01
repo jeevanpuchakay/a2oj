@@ -35,15 +35,20 @@ int main() {
         cin>>n;
         string s;
         int st[n][26];
-        sfor(n)
+        imap ab;
+        memset(st,0,n*26* sizeof(st[0][0]));
+        cin>>s;
+        sfor(s.size())
+        ab[]
+        sfor(n-1)
         {
             cin>>s;
             for (int j = 0; j <s.size() ; ++j) {
-                st[i][s[j]]++;
+                st[i+1][s[j]-'a']++;
             }
         }
         int i,c=0;
-        for(auto j=st[0].bg;j!=st[0].ed;j++)
+        for(auto j=st[];j!=st[0].ed;j++)
         {
             for(i=1;i<n;i++)
             {
