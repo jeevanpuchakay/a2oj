@@ -1,11 +1,8 @@
 #include <iostream>
 #include <math.h>
- 
 using namespace std;
- 
 int a[1000010];
 long long cnt[1000010];
- 
 int main()
 {
     ios::sync_with_stdio(0);
