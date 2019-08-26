@@ -1,3 +1,5 @@
+//incomplete
+
 #include<bits/stdc++.h>
 using namespace std;
 vector<vector<int> > adjlist;
@@ -23,8 +25,12 @@ int main()
     cin>>t;
     while(t--)
     {
+<<<<<<< HEAD
         adjlist=vector<vi>[mod];
         adjlist[0].pb(0);
+=======
+        adjlist=vector<vi> (mod);
+>>>>>>> aa042dc5c1ab7d31e8b996d8e9f6500f4f91ac25
         ll n,a;
         cin>>n;
         ll array[n],xors[n]={0},count=0;
@@ -37,9 +43,24 @@ int main()
             adjlist[xors[i]].pb(i+1);
         }
         for (int j = 0; j <n; ++j) {
+<<<<<<< HEAD
             for (auto i=adjlist[xors[j]].bg;i!=adjlist[xors[j]].ed;i++)
             {
                 
+=======
+            if(!xors[j])
+            {
+                count+=j;
+            }
+            for (auto i=adjlist[xors[j]].bg;i!=adjlist[xors[j]].ed;i++)
+            {
+                for (auto k=adjlist[xors[j]].bg+1; k!=adjlist[xors[j]].ed ; k++) {
+                    if(*k-*i-1<0)
+                        count+=(*i+1-*k);
+                    else
+                        count+=(*k-*i-1);
+                }
+>>>>>>> aa042dc5c1ab7d31e8b996d8e9f6500f4f91ac25
             }
         }
         cout<<count<<endl;
