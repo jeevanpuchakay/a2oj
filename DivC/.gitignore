@@ -1,0 +1,8 @@
+cmake-build-debug
+a.out
+CMakeLists.txt
+*.idea
+!*.cpp
+!main.cpp
+*.xml
+*.iml
