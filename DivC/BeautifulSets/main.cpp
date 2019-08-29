@@ -20,12 +20,11 @@ int main()
 {
     ll n,m;
     cin>>n>>m;
-    set< pair<ll,ll > > ans;
     ll a=min(m,n);
     cout<<a+1<<endl;
-    for(auto i=0;i<=a;i++)
+    for(ll i=0;i<=a;i++)
     {
-        cout<<a<<" "<<a-i<<endl;
+        cout<<i<<" "<<a-i<<endl;
     }
     return 0;
 }
