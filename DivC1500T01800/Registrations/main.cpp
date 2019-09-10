@@ -1,8 +1,5 @@
 #include<bits/stdc++.h>
 using namespace std;
-
-typedef long double ld;
-typedef long long int ll;
 vector<vector<int> > adjlist;
 #define max(x,y) (x>y)?x:y
 #define min(x,y) (x>y)?y:x
@@ -17,10 +14,26 @@ vector<vector<int> > adjlist;
 #define vi vector<int>
 #define map map<int,int>
 #define smap map<string,int>
-#define iset set<int>
-#define bit(x,i) (x&(1<<i))
+#define set set<int>
+typedef long double ld;
+typedef long long int ll;
 int main()
 {
-    
+    ll n;
+    cin>>n;
+    unordered_map<string,ll>a;
+    while(n--){
+        string s;
+        cin>>s;
+        if(a[s]){
+            cout<<s<<a[s];
+            a[s]++;
+        } else{
+            cout<<"OK";
+            a[s]++;
+        }
+        cout<<endl;
+
+    }
     return 0;
 }
