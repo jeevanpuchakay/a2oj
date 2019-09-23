@@ -15,8 +15,8 @@ vector<vector<int> > adjlist;
 #define bg begin()
 #define ed end()
 #define vi vector<int>
-#define imap map<int,int>
-#define smap map<string,int>
+#define imap map<ll,ll>
+#define smap map<string,ll>
 #define iset set<int>
 #define bit(x,i) (x&(1<<i))
 int main()
