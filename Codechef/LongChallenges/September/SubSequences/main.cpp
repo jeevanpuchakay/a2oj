@@ -15,12 +15,12 @@ vector<vector<int> > adjlist;
 #define bg begin()
 #define ed end()
 #define vi vector<int>
-#define imap map<int,int>
+#define imap map<ll,ll>
 #define smap map<string,int>
 #define iset set<int>
 #define bit(x,i) (x&(1<<i))
 ll n,dp[mod][100][100]={0},sum,k;
-ll go(ll a[],ll k1,ll sum1,ll i){
+/*ll go(ll a[],ll k1,ll sum1,ll i){
     if(k1==k){
         if(sum1==sum){
             return 1;
@@ -40,24 +40,41 @@ ll go(ll a[],ll k1,ll sum1,ll i){
        dp[sum1][k1][i]=go(a,k1+1,sum1+a[i],i+1)+go(a,k1,sum1,i+1);
     }
     return dp[sum1][k1][i];
-}
+}*/
 int main()
 {
     ll t;
     cin>>t;
     while(t--){
-        dp[mod][100][100]={0};
+        //dp[mod][100][100]={0};
       //  ll k;
         cin>>n>>k;
         ll a[n];
-        sfor(n)
+        imap feq;
+        sfor(n){
         cin>>a[i];
+        feq[a[i]]++;}
        sort(a,a+n);
-        sum=0;
-        sfor(k)
-        {sum+=a[i];}
-        ll b=go(a,0,0,0);
-        cout<<b<<endl;
+        sum=01;
+        ll i=k-1;
+        ll l=a[k-1];
+        while(i!=-1&&a[i]==l)
+            i--;
+        sum=k-i-1;
+        i=feq[a[k-1]];
+        /*ll z=sum+1,ans=1;
+        while(z<=i)
+        {
+            ans*=z;
+            z++;
+        }
+        z=1;
+        while(z<=i-sum){
+            ans/=z;
+            z++;
+        }
+        cout<<ans<<endl;*/
+        cout<<nCr()
     }
     return 0;
 }
