@@ -6,7 +6,7 @@ typedef long long int ll;
 vector<vector<int> > adjlist;
 #define max(x,y) (x>y)?x:y
 #define min(x,y) (x>y)?y:x
-#define sfor(i,n) for(ll i=0;i<n;i++)
+#define sfor(a,i,n) for(ll i=a;i<n;i++)
 #define mod 1000000007
 #define pb push_back
 #define in insert
@@ -16,11 +16,11 @@ vector<vector<int> > adjlist;
 #define ed end()
 #define vi vector<int>
 #define imap map<ll,ll>
+#define cmap map<char,ll>
 #define smap map<string,ll>
-#define iset set<int>
+#define iset set<ll>
 #define bit(x,i) (x&(1<<i))
 int main()
 {
-    
     return 0;
 }
