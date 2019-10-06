@@ -26,19 +26,20 @@ int main()
     cin>>n>>k;
     vi id;
     vi::iterator z=id.bg;
+    imap feq;
     sfor(0,n,i)
     {
         cin>>a;
-        z=find(id.bg,id.ed,a);
-
-        if((id.size()>=k)&&(z==id.ed))
+        if((id.size()>=k)&&(feq[a]==0))
         {
+            feq[*(id.ed-1)]=0;
             id.pop_back();
             id.insert(id.bg,a);
         }
-        else if(z==id.ed){
+        else if(feq[a]==0){
             id.insert(id.bg,a);
         }
+        feq[a]++;
 
     }
     cout<<id.size()<<endl;
