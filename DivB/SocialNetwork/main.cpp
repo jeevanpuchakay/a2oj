@@ -26,10 +26,11 @@ int main()
     cin>>n>>k;
     vi id;
     vi::iterator z=id.bg;
-    imap feq;
+    iset feq;
     sfor(0,n,i)
     {
         cin>>a;
+        auto t=feq
         if((id.size()>=k)&&(feq[a]==0))
         {
             feq[*(id.ed-1)]=0;
