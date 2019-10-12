@@ -14,7 +14,7 @@ vector<vector<int> > adjlist;
 #define inf mod
 #define bg begin()
 #define ed end()
-#define vi vector<int>
+#define vi vector<ll>
 #define imap map<ll,ll>
 #define cmap map<char,ll>
 #define smap map<string,ll>
