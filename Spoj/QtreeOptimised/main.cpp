@@ -21,24 +21,24 @@ vector<vector<int> > adjlist;
 #define smap map<string,ll>
 #define iset set<ll>
 #define bit(x,i) (x&(1<<i))
-vector<pair<ll,ll> >edgs;
+map<pair<ll,ll>,ll>grap;
+vector<pair<ll,ll>> edg;
 ll n,cmax;
-ll dfs(ll cur,ll des) {
+ll dfs(ll cur,ll des,vi trc) {
     ll maxcos=0;
     if(cur==des)
         return 0;
-    sfor(1,n+1,i) {
-        if(adjlist[cur][i]){
-            maxcos=max(maxcos,adjlist[cur][i]);
-            if(maxcos==cmax){
-                break;
-            }
-            maxcos=max(dfs(i,des),maxcos);
-            if(maxcos==cmax){
-                break;
-            }
+    else if(trc[cur])
+        return 0;
+    for(auto z=adjlist[cur].bg;z!=adjlist[cur].ed;z++){
+        trc[*z]=1;
+        maxcos=max(maxcos,grap[mp(min(cur,*z),max(cur,*z))]);
+        maxcos=max(dfs(*z,des,trc),maxcos);
+        if(maxcos==cmax){
+            break;
+        }
+        trc[*z]=0;
     }
-}
     return maxcos;
 }
 int main()
@@ -50,45 +50,47 @@ int main()
         cmax=0,c=0;
         cin>>n;
         adjlist=vector<vi> (n+1);
-        edgs=vector<pair<ll,ll> > (n+1);
+        edg=vector<pair<ll,ll>> (n+1);
         sfor(0,n-1,i)
         {
             cin>>x>>y>>c;
             if(x>y)
                 swap(x,y);
-            edgs[i+1].first=x;
-            edgs[i+1].second=y;
-            adjlist[x][y]=c;
-            adjlist[y][x]=c;
+            grap[mp(x,y)]=c;
+            edg[i+1]=mp(x,y);
+            adjlist[x].pb(y);
+            adjlist[y].pb(x);
             cmax=max(cmax,c);
         }
         while(cin>>s,s!="DONE"){
             if(s=="CHANGE")
             {
                 cin>>ti>>c;
-                x=edgs[ti].first;
-                y=edgs[ti].second;
-                adjlist[x][y]=c,adjlist[y][x]=c;
+                x=edg[ti].first;
+                y=edg[ti].second;
+                grap[mp(x,y)]=c;
                 cmax=max(cmax,c);
             }
             else{
                 cin>>x>>y;
                 ll maxcos=0;
-                sfor(1,n+1,i){
-                    if(adjlist[x][i]&&x!=i){
-                        maxcos=max(maxcos,adjlist[x][i]);
-                        maxcos=max(dfs(i,y),maxcos);
-                        if(maxcos==cmax){
-                            break;
-                        }
-                        }
+                for(auto z=adjlist[x].bg;z!=adjlist[x].ed;z++){
+                    vi trc(n+1);
+                    trc[*z]=1;
+                    maxcos=max(maxcos,grap[mp(min(x,*z),max(x,*z))]);
+                    maxcos=max(dfs(*z,y,trc),maxcos);
+                    if(maxcos==cmax){
+                        break;
                     }
-                    cout<<maxcos<<endl;
                 }
+                cout<<maxcos<<endl;
             }
         }
+    }
     return 0;
 }
+//1
+//
 //3
 //1 2 1
 //2 3 2
