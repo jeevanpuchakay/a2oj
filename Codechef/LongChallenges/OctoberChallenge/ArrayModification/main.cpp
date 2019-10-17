@@ -45,8 +45,13 @@ int main() {
         sfor(0,ti,i)
             a[i]^=a[n-i-1];
         sfor(0,n,i)
-        cout<<a[i]<<" ";
-        cout<<endl;
+        {
+            cout<<a[i];
+            if(i!=n-1)
+                cout<<" ";
+        }
+        if(t!=-1)
+            cout<<endl;
     }
     return 0;
 }
