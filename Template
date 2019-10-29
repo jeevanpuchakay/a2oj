@@ -3,7 +3,7 @@ using namespace std;
 
 typedef long double ld;
 typedef long long int ll;
-vector<vector<int> > adjlist;
+vector<vector<ll> > adjlist;
 #define max(x,y) (x>y)?x:y
 #define min(x,y) (x>y)?y:x
 #define sfor(a,n,i) for(ll i=a;i<n;i++)
