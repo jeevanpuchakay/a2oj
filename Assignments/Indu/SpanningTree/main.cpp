@@ -1,11 +1,13 @@
-#include<bits/stdc++.h>
+#include<iostream>
+#include<vector>
 using namespace std;
 typedef long long int ll;
 struct edge{
     ll v1,v2,w;
 };
 vector<edge> adjlist;//adjacency list
-ll result[100009],minweit[100000009];
+vector<ll> result(100009);
+vector<ll> minweit(100000009);
 ll v,e,q;//number of vertices,edges,queries respectively
 void mergestep(ll start,ll mid,ll end){
     ll n1=mid-start+1;
@@ -130,7 +132,7 @@ int main() {
             else
                 start=mid+1;
         }
-        while(start>=0&&adjlist[start-1].w!=z)
+        while(start>=0&&adjlist[start-1].w==z)
             start--;
         start=start<0?0:start;
         adjlist.insert(adjlist.begin()+start,ed);
