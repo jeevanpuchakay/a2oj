@@ -84,10 +84,10 @@ void addToMST(ll x,ll y){
     //cout<<"x "<<parent[x]<<" y"<<parent[y]<<endl;
     return;
 }
-ll minSpanTree(){
+ll minSpanTree(ll start){
     ll final=0;
-    ll start=0;
-    ll weit=0;
+    //ll start=0;
+    ll weit=start?minweit[start-1]:0;
     for (int j = start; j <v ; ++j) {
         parent[j]=j;
        // cout<<parent[j]<<" ";
@@ -113,7 +113,7 @@ int main() {
 
     ll x,y,z;
     cin>>v>>e>>q;
-    minweit=vector<ll>(e+q+9);
+    minweit=vector<ll>(e+q+9,0);
     for (ll i = 0; i < e; ++i) {
         cin>>x>>y>>z;
         edge ed;
@@ -121,7 +121,7 @@ int main() {
         adjlist.push_back(ed);
     }
     mergesort(0,e-1);
-    cout<<minSpanTree()<<endl;
+    cout<<minSpanTree(0)<<endl;
 
     for (ll j = 0; j <q ; ++j) {
         cin>>x>>y>>z;
@@ -150,7 +150,7 @@ int main() {
         //}
         //cout<<endl;
        //for(int p=0;p)
-        cout<<minSpanTree()<<endl;
+        cout<<minSpanTree(start)<<endl;
     }
     return 0;
 }
