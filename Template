@@ -15,6 +15,7 @@ vector<vector<ll> > adjlist;
 #define inf mod
 #define bg begin()
 #define ed end()
+#define sz size()
 #define vi vector<ll>
 #define imap map<ll,ll>
 #define cmap map<char,ll>
