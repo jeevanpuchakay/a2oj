@@ -6,13 +6,13 @@ struct edge{
     ll v1,v2,w;
 };
 vector<edge> adjlist;//adjacency list
-vector<ll> result(100009);
-vector<ll> minweit(100000009);
+//vector<ll> result(100009);
+vector<ll> minweit;
 ll v,e,q;//number of vertices,edges,queries respectively
 void mergestep(ll start,ll mid,ll end){
     ll n1=mid-start+1;
     ll n2=end-mid;
-    edge temp1[n1],temp2[n2];
+    vector<edge> temp1(n1),temp2(n2);
     for (ll i=0;i<n1;i++){
         temp1[i]=adjlist[i+start];
     }
@@ -95,7 +95,6 @@ ll minSpanTree(ll start){
     for(i=start;i<e&&final<v;i++){
         if(check(adjlist[i].v1,adjlist[i].v2))
         {
-            result[final++]=i;
             addToMST(adjlist[i].v1,adjlist[i].v2);
             minweit[i]=weit+adjlist[i].w;
             weit=minweit[i];
@@ -111,6 +110,7 @@ int main() {
 
     ll x,y,z;
     cin>>v>>e>>q;
+    minweit=vector<ll>(e+q+9);
     for (ll i = 0; i < e; ++i) {
         cin>>x>>y>>z;
         edge ed;
@@ -135,6 +135,11 @@ int main() {
         while(start>=0&&adjlist[start-1].w==z)
             start--;
         start=start<0?0:start;
+        if(adjlist[start].w<z)
+        {
+            adjlist.push_back(ed);
+        }
+        else
         adjlist.insert(adjlist.begin()+start,ed);
        //for(int p=0;p)
         cout<<minSpanTree(start)<<endl;
