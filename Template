@@ -24,5 +24,7 @@ vector<vector<ll> > adjlist;
 #define bit(x,i) (x&(1<<i))
 int main()
 {
+    
     return 0;
 }
+
