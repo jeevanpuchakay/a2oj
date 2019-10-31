@@ -84,9 +84,10 @@ void addToMST(ll x,ll y){
     //cout<<"x "<<parent[x]<<" y"<<parent[y]<<endl;
     return;
 }
-ll minSpanTree(ll start){
+ll minSpanTree(){
     ll final=0;
-    ll weit=start?minweit[start-1]:0;
+    ll start=0;
+    ll weit=0;
     for (int j = start; j <v ; ++j) {
         parent[j]=j;
        // cout<<parent[j]<<" ";
@@ -95,9 +96,11 @@ ll minSpanTree(ll start){
     for(i=start;i<e&&final<v;i++){
         if(check(adjlist[i].v1,adjlist[i].v2))
         {
+            //cout<<adjlist[i].v1<<" i j"<<adjlist[i].v2<<endl;
             addToMST(adjlist[i].v1,adjlist[i].v2);
             minweit[i]=weit+adjlist[i].w;
             weit=minweit[i];
+            final++;
         }
         else{
             minweit[i]=minweit[i-1];
@@ -118,7 +121,7 @@ int main() {
         adjlist.push_back(ed);
     }
     mergesort(0,e-1);
-    cout<<minSpanTree(0)<<endl;
+    cout<<minSpanTree()<<endl;
 
     for (ll j = 0; j <q ; ++j) {
         cin>>x>>y>>z;
@@ -127,7 +130,7 @@ int main() {
         ll start=0,end=adjlist.size()-1;
         while(start<end){
             ll mid=(start+end)/2;
-            if(adjlist[mid].w<=z)
+            if(adjlist[mid].w>=z)
                 end=mid;
             else
                 start=mid+1;
@@ -141,8 +144,13 @@ int main() {
         }
         else
         adjlist.insert(adjlist.begin()+start,ed);
+        //cout<<start<<" start "<<endl;
+       // for(int i=0;i<e;i++){
+         //   cout<<adjlist[i].v1<<" "<<adjlist[i].v2<<" "<<adjlist[i].w<<endl;
+        //}
+        //cout<<endl;
        //for(int p=0;p)
-        cout<<minSpanTree(start)<<endl;
+        cout<<minSpanTree()<<endl;
     }
     return 0;
 }
