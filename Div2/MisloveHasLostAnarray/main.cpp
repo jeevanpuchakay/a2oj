@@ -1,13 +1,11 @@
 #include<bits/stdc++.h>
 using namespace std;
-
 typedef long double ld;
 typedef long long int ll;
-vector<vector<ll> > adjlist;
+vector<vector<int> > adjlist;
 #define max(x,y) (x>y)?x:y
 #define min(x,y) (x>y)?y:x
-#define sfor(a,n,i) for(ll i=a;i<n;i++)
-#define rfor(n,a,i) for(ll i=n;i>=a;i--)
+#define sfor(n) for(ll i=0;i<n;i++)
 #define mod 1000000007
 #define pb push_back
 #define in insert
@@ -15,16 +13,17 @@ vector<vector<ll> > adjlist;
 #define inf mod
 #define bg begin()
 #define ed end()
-#define sz size()
-#define vi vector<ll>
-#define imap map<ll,ll>
-#define cmap map<char,ll>
-#define smap map<string,ll>
-#define iset set<ll>
-#define bit(x,i) (x&(1<<i))
+#define vi vector<int>
 int main()
 {
-    
+    ll n,r,l;
+    cin>>n>>l>>r;
+    ll a=0,b=0,c=0;
+    a=pow(2,l);
+    a+=n-l-1;
+    b=n-r;
+    b*=pow(2,r-1);
+    b+=pow(2,r)-1;
+    cout<<a<<" "<<b;
     return 0;
 }
-

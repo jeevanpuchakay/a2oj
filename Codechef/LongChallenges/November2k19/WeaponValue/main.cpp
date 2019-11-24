@@ -22,9 +22,31 @@ vector<vector<ll> > adjlist;
 #define smap map<string,ll>
 #define iset set<ll>
 #define bit(x,i) (x&(1<<i))
+//vector<string> s(10009);
+vi bs(10009,0);
 int main()
 {
-    
+    ll t;
+    cin>>t;
+    while(t--){
+        ll n; string x;cin>>n;
+        vi a(10,0);
+        sfor(0,n,i){
+            cin>>x;
+            sfor(0,10,j)
+            if(x[j]=='1')
+            {
+                a[j]++;
+            }
+        }
+        ll count=0;
+        sfor(0,10,i){
+            if(a[i]%2)
+                count++;
+        }
+        cout<<count<<endl;
+
+    }
     return 0;
 }
 

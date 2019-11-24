@@ -24,7 +24,19 @@ vector<vector<ll> > adjlist;
 #define bit(x,i) (x&(1<<i))
 int main()
 {
-    
+    ll n;
+    cin>>n;
+    while(n){
+        vi a(n),b(n);
+        sfor(0,n,i)
+        cin>>a[i];
+        sfor(0,n,i){
+            b[a[i]-1]=i+1;
+        }
+        b==a?cout<<"ambiguous":cout<<"not ambiguous";
+        cout<<endl;
+        cin>>n;
+    }
     return 0;
 }
 

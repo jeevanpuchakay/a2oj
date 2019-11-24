@@ -22,9 +22,29 @@ vector<vector<ll> > adjlist;
 #define smap map<string,ll>
 #define iset set<ll>
 #define bit(x,i) (x&(1<<i))
+
 int main()
 {
-    
+    ll t;
+    cin>>t;
+    while(t--){
+        ll g;
+        cin>>g;
+        while(g--){
+            ll n,i,f;
+            cin>>i>>n>>f;
+            if(n%2){
+                if(f==i){
+                    cout<<(n-1)/2<<endl;
+                }
+                else{
+                    cout<<(n+1)/2<<endl;
+                }
+            }else{
+                cout<<n/2<<endl;
+            }
+        }
+    }
     return 0;
 }
 
