@@ -1,0 +1,18 @@
+Given an integer array,
+you need to find one continuous subarray that if you only sort this subarray in ascending order,
+then the whole array will be sorted in ascending order, too.
+
+
+Solution:
+
+find the shortest index with having value greater than the next number in the array say i,
+
+now start from the end and traverse backwards till 
+the lower index element is greater than higher index element say j
+
+try to pick up the least element from i to j 
+
+and change i to the least elemnt which is greater than min(i,j), 
+j to the largest element which is less than max(i,j)
+
+therefore required indexes are i,j .
