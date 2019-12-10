@@ -17,6 +17,7 @@ ll max(ll x,ll y){return (x>y)?x:y;}
 #define ed end()
 #define sz size()
 #define vi vector<ll>
+#define vc vector<char>
 #define vinv vector<vector<ll,ll> >
 #define imap map<ll,ll>
 #define cmap map<char,ll>
