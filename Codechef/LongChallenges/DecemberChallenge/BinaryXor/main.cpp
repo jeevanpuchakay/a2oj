@@ -53,6 +53,7 @@ int main()
             temp/=j;
             ans+=(temp%mod);
             ans%=mod;
+            i++;
             //cout<<temp<<" ";
         }
         cout<<ans<<endl;
