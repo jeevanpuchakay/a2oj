@@ -79,8 +79,27 @@ node* substract(node* head1,node* head2){
     ans->next = NULL;
     node *dupAns = ans;
     while(temp2!=NULL){
-
+        int operation=temp1->data - temp2->data - c;
+        if(operation>=0){
+            node *newNode= new node;
+            newNode->data=operation;
+           newNode->next=dupAns->next;
+            dupAns->next=newNode;
+            c=0;
+            dupAns=dupAns->next;
+        }
+        else{
+            node *newNode= new node;
+            newNode->data=operation+10;
+           newNode->next=dupAns->next;
+            dupAns->next=newNode;
+            c=01;
+            dupAns=dupAns->next;
+        }
+        temp2 = temp2->next;
+        temp1 = temp1->next;
     }
+    return ans;
 }
 node* multiply(node* head1,node* head2,int n1,int n2){
     node *temp1, *temp2;
@@ -91,7 +110,9 @@ node* multiply(node* head1,node* head2,int n1,int n2){
     ans->next = NULL;
     node *dupAns = ans;
     int digit=0;
-
+    while(temp1!=NULL){
+        
+    }
 
 }
 int main()
