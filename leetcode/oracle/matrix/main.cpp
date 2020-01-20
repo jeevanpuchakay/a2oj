@@ -45,11 +45,29 @@ public:
             return;
         }
         //pair<int,int> 
-        int col[numberOfCols];
-        int rows[numberOfrows];
-        for(int i=0;i<numberOfCols;i++){
-            for(int j=0;j<numberOfrows;j++){
-                
+        vector<int> col(numberOfCols,0);
+        vector<int> rows(numberOfrows,0);
+        for(int i=0;i<numberOfrows;i++){
+            //if(!rows[i])
+            for(int j=0;j<numberOfCols;j++){
+                //if(col[j]==0)
+                 //{
+                     if(matrix[i][j]==0){
+                     rows[i]=1;
+                     col[j]=1;
+                     //break;
+                 }
+                 
+                 //}
+            }
+        }
+
+        for(int i=0;i<numberOfrows;i++){
+            //if(rows[i])
+            for(int j=0;j<numberOfCols;j++){
+                if(rows[i]||col[j])
+                matrix[i][j]=0;
+                 //}
             }
         }
     }
