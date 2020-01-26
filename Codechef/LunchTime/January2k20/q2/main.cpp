@@ -26,7 +26,30 @@ ll max(ll x,ll y){return (x>y)?x:y;}
 #define bit(x,i) (x&(1<<i))
 int main()
 {
+    ll t;cin>>t;
+    while (t--)
+    {
+        /* code */
+        ll n,a,b,c;cin>>n>>a>>b>>c;
+        ll x=0,ans;
+        cin>>x;
+        ans=abs(x-a)+abs(x-b)+c;
+        sfor(01,n,i){
+            cin>>x;
+            if((abs(x-a)+abs(x-b)+c)<ans)
+            ans=abs(x-a)+abs(x-b)+c;
+
+        }
+        cout<<ans<<endl;
+    }
     
     return 0;
 }
 
+
+/*
+2
+3 1 5 2
+6 7 8
+1 1 2 1000000000
+1000000000*/
