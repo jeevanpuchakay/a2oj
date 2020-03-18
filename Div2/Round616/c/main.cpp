@@ -18,21 +18,36 @@ ll min(ll x, ll y) { return (x > y) ? y : x; }
 #define sz size()
 #define vi vector<ll>
 #define vc vector<char>
-#define vinv vector<vector<ll>>
+#define vinv vector<vector<ll, ll>>
 #define imap map<ll, ll>
 #define cmap map<char, ll>
 #define smap map<string, ll>
 #define iset set<ll>
 #define bit(x, i) (x & (1 << i))
+ll dp[3509][3509][3509];
+ll a[3509];ll n,m,k;;
+ll go(ll i,ll j,ll k,ll pos){
+    if(pos==m)
+    return min(a[i],a[j]);
+    if(i>n-1||j<0||i>j)return mod;
+    ll &ans=dp[i][j][k];
+    if(ans)
+    return ans;
+    ll one=min(go(i+1,j,k-1,pos+1),go(i,j-1,k-1,pos+1));
+    ll two=min(go(i+1,j,k,pos+1),go(i,j-1,k,pos+1));
+    ans=min(one,two);
+    return ans;
+}
 int main()
 {
     ll cases;
     cin>>cases;
-    sfor(0,cases,t){
-        ld p=cases,lol=cases;
-        if(lol/p==1){
-            cout<<"yes";
-        }
+    sfor(0,cases,tata){
+        
+        cin>>n>>m>>k;memset(dp,0,3509*3509*3509*sizeof(ll));
+        sfor(0,n,i)
+        cin>>a[i];
+        cout<<go(0,n-1,k,1)<<endl;
     }
     return 0;
 }

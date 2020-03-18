@@ -18,7 +18,7 @@ ll min(ll x, ll y) { return (x > y) ? y : x; }
 #define sz size()
 #define vi vector<ll>
 #define vc vector<char>
-#define vinv vector<vector<ll>>
+#define vinv vector<vector<ll, ll>>
 #define imap map<ll, ll>
 #define cmap map<char, ll>
 #define smap map<string, ll>
@@ -29,10 +29,35 @@ int main()
     ll cases;
     cin>>cases;
     sfor(0,cases,t){
-        ld p=cases,lol=cases;
-        if(lol/p==1){
-            cout<<"yes";
+        ll n;cin>>n;
+        ll mi=mod,ma=-2;
+        vi a(n,0);
+        sfor(0,n,i){
+            cin>>a[i];
+            if(a[i]<mi&&a[i]!=-1){
+                mi=a[i];
+            }
+            if(ma<a[i])
+            {
+                ma=a[i];
+            }
         }
+        if(ma==-1){
+            cout<<0<<" "<<0<<endl;continue;
+        }
+        ll rep=(mi+ma)/2,count=-1;
+        if(a[0]==-1)a[0]=rep;
+        sfor(01,n,i)
+        {
+            if(a[i]==-1)
+            a[i]=rep;
+            count=max(count,abs(a[i]-a[i-1]));
+        }
+       // cout<<mi<<" "<<ma<<endl;
+        //sfor(0,n,i)cout<<a[i]<<" ";
+        //cout<<endl;
+       cout<<count<<" "<<rep<<endl;
+        
     }
     return 0;
 }

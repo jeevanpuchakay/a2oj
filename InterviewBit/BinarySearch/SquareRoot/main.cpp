@@ -18,21 +18,38 @@ ll min(ll x, ll y) { return (x > y) ? y : x; }
 #define sz size()
 #define vi vector<ll>
 #define vc vector<char>
-#define vinv vector<vector<ll>>
+#define vinv vector<vector<ll, ll>>
 #define imap map<ll, ll>
 #define cmap map<char, ll>
 #define smap map<string, ll>
 #define iset set<ll>
 #define bit(x, i) (x & (1 << i))
-int main()
+
+int Solution::sqrt(int a)
 {
-    ll cases;
-    cin>>cases;
-    sfor(0,cases,t){
-        ld p=cases,lol=cases;
-        if(lol/p==1){
-            cout<<"yes";
+    int low = 0, hig = a/2;
+    int m = (low + hig) / 2;
+    if(a<=4){
+        if(!a)return 0;
+        if(a<=3)return 1;
+        return 2;
+    }
+    while (low < hig)
+    {
+        m = (low + hig) / 2;
+        if (m * m < a)
+        {
+            low = m + 1;
+        }
+        else if (m * m > a)
+        {
+            hig = m;
+        }
+        else
+        {
+            low=m;
+            break;
         }
     }
-    return 0;
+    return low;
 }

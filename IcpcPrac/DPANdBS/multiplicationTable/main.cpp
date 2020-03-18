@@ -18,7 +18,7 @@ ll min(ll x, ll y) { return (x > y) ? y : x; }
 #define sz size()
 #define vi vector<ll>
 #define vc vector<char>
-#define vinv vector<vector<ll>>
+#define vinv vector<vector<ll, ll>>
 #define imap map<ll, ll>
 #define cmap map<char, ll>
 #define smap map<string, ll>
@@ -26,13 +26,31 @@ ll min(ll x, ll y) { return (x > y) ? y : x; }
 #define bit(x, i) (x & (1 << i))
 int main()
 {
-    ll cases;
-    cin>>cases;
-    sfor(0,cases,t){
-        ld p=cases,lol=cases;
-        if(lol/p==1){
-            cout<<"yes";
-        }
+    ll n,m,k;
+    cin>>n>>m>>k;
+    adjlist=vector<vector<ll>>(n,vi(m,0));
+    sfor(0,n,i){
+        sfor(0,m,j)
+        adjlist[i][j]=(i+1)*(j+1);
     }
+    ll start=1,end=n*m;
+    while(start<end){
+        ll mid=(start+end)/2;
+        ll count=0;
+        sfor(0,n,i){
+        sfor(0,m,j){
+            if(mid>adjlist[i][j])
+            count++;
+        }
+//        adjlist[i][j]=(i+1)*(j+1);
+    }
+    if(count<k){
+        start=mid+1;
+    }
+    else if(count>=k){
+        end=mid;
+    }
+    }
+    cout<<(start+end)/2<<endl;
     return 0;
 }
