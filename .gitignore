@@ -7,7 +7,7 @@ CMakeLists.txt
 !main.cpp
 *.xml
 *.iml
-
+test.cpp
 
 
 # Created by https://www.gitignore.io/api/c++,visualstudiocode
