@@ -27,32 +27,20 @@ ll min(ll x, ll y) { return (x > y) ? y : x; }
 int main()
 {
     ll n;
-  ll  k;
+    ll k;
+    ll ans = 0;
     cin >> n >> k;
     vi pos;
     string s;
     cin >> s;
-    ll as = 0, bs = 0;
-    if(k==0){
-        as=s[0]=='a'?1:0;
-        bs=1-as;
-        ll mas=0;
-        mas=max(as,bs);
-        sfor(01,n,i){
-            if(s[i]==s[i-1]){
-                if(s[i]=='a'){
-                    as++;
-                    bs=0;
-                    mas=max(as,mas);
-                }
-                else{
-                    bs++;as=0;
-                    mas=max(bs,mas);
-                }
-            }
-        }
-        cout<<mas;return 0;
+    ll l = 0, r = 1;
+    if (n == 1)
+    {
+        cout << 1 << endl;
+        return 0;
     }
+    ll count = 0;
+    ll as = 0, bs = 0;
     sfor(0, n, i)
     {
         if (s[i] == 'a')
@@ -60,39 +48,58 @@ int main()
         else
             bs++;
     }
-    char check = as < bs ? 'a' : 'b';
     ll start = 0;
-    sfor(0, n, i)
+
+    if ((!as) || (!bs))
     {
-        if (check == s[i])
-        {
-            pos.pb(i) ;
-        }
+        cout << n << endl;
+        return 0;
     }
-    ll ans = 0;
-    as=min(as,bs);
-//    cout<<"as "<<as;
-    for (ll i = 0; i<as; i++)
+    char check = as > bs ? 'b' : 'a';
+    while (start < n && check != s[start])
+        start++;
+    l = start, r = start;
+    // ll ans = 0;
+    count = 1;
+    ll prevL = l;
+    //cout<<"start "<<start<<" check "<<check<<endl;
+    if (!k)
     {
-        ll count = 0;
-        if (i == 0)
-            count = pos[0]+1;
-        else{
-            count+=pos[i]-pos[i-1];
-        }    
-        if(i+k-1>=as){
-            count+=n-pos[i]-1;
-        }
-        else{
-            count+=pos[i+k-1]-pos[i];
-            if(i+k<as){
-                count+=pos[i+k]-pos[i+k-1]-1;
-            }else{
-                count+=n-1-pos[i+k-1];
+        ll last = -1, cont = 0;
+        for (ll i = 0; i < n; i++)
+        {
+            if (s[i] == check)
+            {
+                cont = max(cont, i - last);
+                last = i;
             }
         }
-
-        ans = max(ans, count);
+        cont = max(cont, n - last - 1);
+        cout << cont << endl;
+        return 0;
     }
-    cout<<ans;
+    while (r < n && l < n)
+    {
+        /* code */
+        while (count <= k && r < n)
+        {
+            /* code */ r++;
+            if (r < n && s[r] == check)
+                count++;
+        }
+        if (l == start)
+        {
+            ans = max(ans, r);
+        }
+        else
+        {
+            ans = max(ans, r - prevL);
+        }
+        prevL = l + 1;
+        l++;
+        while (l < n && s[l] != check)
+            l++;
+    }
+
+    cout << ans;
 }
