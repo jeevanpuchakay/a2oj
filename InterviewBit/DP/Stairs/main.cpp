@@ -6,6 +6,8 @@ typedef long long int ll;
 vector<vector<ll>> adjlist;
 ll max(ll x, ll y) { return (x > y) ? x : y; }
 ll min(ll x, ll y) { return (x > y) ? y : x; }
+#define sfor(a, n, i) for (ll i = a; i < n; i++)
+#define rfor(n, a, i) for (ll i = n; i >= a; i--)
 #define mod 1000000007
 #define pb push_back
 #define in insert
@@ -17,19 +19,18 @@ ll min(ll x, ll y) { return (x > y) ? y : x; }
 #define vi vector<ll>
 #define vc vector<char>
 #define vinv vector<vector<ll>>
-#define sfor(a, n, i) for (ll i = a; i < n; i++)
-#define rfor(n, a, i) for (ll i = n; i >= a; i--)
+#define imap map<ll, ll>
+#define cmap map<char, ll>
+#define smap map<string, ll>
+#define iset set<ll>
+#define bit(x, i) (x & (1 << i))
 
 
-int main()
-{
-    ll cases;
-    cin>>cases;
-    sfor(0,cases,t){
-        ld p=cases,lol=cases;
-        if(lol/p==1){
-            cout<<"yes";
-        }
+int Solution::climbStairs(int a) {
+    vi dp(a,0);
+    dp[0]=1;dp[1]=2;
+    sfor(2,a,i){
+        dp[i]=dp[i-1]+dp[i-2];
     }
-    return 0;
+    return dp[a-1];
 }

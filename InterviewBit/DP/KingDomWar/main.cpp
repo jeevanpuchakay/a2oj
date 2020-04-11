@@ -20,16 +20,23 @@ ll min(ll x, ll y) { return (x > y) ? y : x; }
 #define sfor(a, n, i) for (ll i = a; i < n; i++)
 #define rfor(n, a, i) for (ll i = n; i >= a; i--)
 
-
-int main()
+int Solution::solve(vector<vector<int>> &a)
 {
-    ll cases;
-    cin>>cases;
-    sfor(0,cases,t){
-        ld p=cases,lol=cases;
-        if(lol/p==1){
-            cout<<"yes";
+
+    int n = a.sz;
+    int m = a[0].sz;
+    vi dp(m, 0);
+    int ans = INT_MIN;
+    int counter = 0;
+    rfor(n - 1, 0, i)
+    {
+        counter = 0;
+        rfor(m - 1, 0, j)
+        {
+            dp[j] += a[i][j];
+            counter+=dp[j];
+            ans = max(ans, counter);
         }
     }
-    return 0;
+    return ans;
 }
