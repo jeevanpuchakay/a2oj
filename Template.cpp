@@ -26,10 +26,7 @@ int main()
     ll cases;
     cin>>cases;
     sfor(0,cases,t){
-        ld p=cases,lol=cases;
-        if(lol/p==1){
-            cout<<"yes";
-        }
+        
     }
     return 0;
 }
