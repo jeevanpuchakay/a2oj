@@ -10,7 +10,16 @@ ll min(ll x, ll y) { return (x > y) ? y : x; }
 ll cases, n;
 void solveCase()
 {
-    
+    cin >> n;
+    ll ans = 0, last = mod, current;
+    for (ll i = 0; i < n; i++)
+    {
+        cin >> current;
+        ans += (last > current);
+        last = current;
+    }
+    ans!=n ? cout << "YES" : cout << "NO";
+    cout << '\n';
 }
 
 int main()

@@ -10,7 +10,17 @@ ll min(ll x, ll y) { return (x > y) ? y : x; }
 ll cases, n;
 void solveCase()
 {
-    
+    cin >> n;
+    ll secondArray[n];
+    bool ans = true;
+    for (ll i = 0; i < n; i++)
+    {
+        cin >> secondArray[i];
+        ans &= (secondArray[i] <= (i + 1));
+        ans &= (((i + 1) % secondArray[i]) == 0);
+    }
+    ans ? cout << "YES" : cout << "NO";
+    cout << '\n';
 }
 
 int main()
