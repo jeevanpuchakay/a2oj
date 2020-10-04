@@ -3,14 +3,14 @@ using namespace std;
 
 typedef long double ld;
 typedef long long int ll;
-#define endl "\n"
 vector<vector<ll>> adjlist;
 ll max(ll x, ll y) { return (x > y) ? x : y; }
 ll min(ll x, ll y) { return (x > y) ? y : x; }
 #define mod 1000000007
-ll cases=1, n;
+ll cases, n;
 void solveCase()
 {
+    cin>>n;
     
 }
 
