@@ -1,4 +1,4 @@
-Time taken by parallel program: 12889900 microseconds
+Time taken by parallel program: 10179635 microseconds
 ) 1201717(0.210257)
 961894(0.144056) 1693948(0.189208)
 1201717(0.210257) 1972835(0.337847)
@@ -8905,4 +8905,4 @@ Time taken by parallel program: 12889900 microseconds
 1574543(0.130124) 186284(0.171628)
 1574543(0.130124) 1953133(0.282542)
 1953133(0.282542) 808115(0.395955)
-Time taken by parallel program: 12814306 microseconds
+Time taken by parallel program: 11993388 microseconds
