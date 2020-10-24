@@ -14,14 +14,17 @@ ll cases = 1, n, sum, m;
 ll x, y;
 void solveCase(ll testCaseNum)
 {
+    cin >> n;
+    x = floor(log10(n)) + 1;
+    x *= (x + 1);
+    x /= 2;
+    cout << ((n % 10) - 1) * 10 + (x) << endl;
 }
 
 int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    freopen("TestCasesInput.txt", "r", stdin);
-    // freopen("TestCaseOutput.txt", "w", stdout);
     cin >> cases;
     for (ll t = 1; t <= cases; t++)
     {

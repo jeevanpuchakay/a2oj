@@ -14,15 +14,27 @@ ll cases = 1, n, sum, m;
 ll x, y;
 void solveCase(ll testCaseNum)
 {
+    cin >> n;
+    vector<string> transform(10);
+    transform[1] = "1", transform[2] = "2", transform[3] = "3", transform[4] = "322", transform[5] = "5", transform[6] = "53", transform[7] = "7", transform[8] = "7222", transform[9] = "7332";
+    string s, ans = "";
+    cin >> s;
+    for (char c : s)
+    {
+        if (c != '1' && c != '0')
+        {
+            ans += transform[c - '0'];
+        }
+    }
+    sort(ans.rbegin(), ans.rend());
+    cout << ans << endl;
 }
 
 int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    freopen("TestCasesInput.txt", "r", stdin);
-    // freopen("TestCaseOutput.txt", "w", stdout);
-    cin >> cases;
+    // cin >> cases;
     for (ll t = 1; t <= cases; t++)
     {
         solveCase(t);

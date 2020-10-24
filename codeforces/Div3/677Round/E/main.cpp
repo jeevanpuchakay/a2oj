@@ -12,17 +12,22 @@ ll min(ll x, ll y) { return (x > y) ? y : x; }
 #define printTestCaseNum(x) cout << "Case #" << x << ": "
 ll cases = 1, n, sum, m;
 ll x, y;
+vector<ll> factorial(21, 1);
 void solveCase(ll testCaseNum)
 {
+    cin >> n;
+    cout << (factorial[n] / (n * n / 2)) << endl;
 }
 
 int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    freopen("TestCasesInput.txt", "r", stdin);
-    // freopen("TestCaseOutput.txt", "w", stdout);
-    cin >> cases;
+    // cin >> cases;
+    for (ll i = 1; i <= 20; i++)
+    {
+        factorial[i] = (i * factorial[i - 1]);
+    }
     for (ll t = 1; t <= cases; t++)
     {
         solveCase(t);

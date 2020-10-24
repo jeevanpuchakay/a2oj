@@ -20,11 +20,11 @@ ll cutTheRect(ll a, ll b, vector<vector<ll>> &dp)
     ans = mod;
     for (ll i = 1; i < len; i++)
     {
-        ans = min(ans, 1 + cutTheRect(i, breadth, dp) + cutTheRect(len - i, breadth, dp));
+        ans = min(ans, cutTheRect(i, breadth, dp) + cutTheRect(len - i, breadth, dp));
     }
     for (ll i = 1; i < breadth; i++)
     {
-        ans = min(ans, 1 + cutTheRect(len, i, dp) + cutTheRect(len, breadth - i, dp));
+        ans = min(ans, cutTheRect(len, i, dp) + cutTheRect(len, breadth - i, dp));
     }
     return ans;
 }
@@ -34,7 +34,9 @@ void solveCase()
     ll len = min(n, m), breadth = max(n, m);
     vector<vector<ll>> dp(len + 1, vector<ll>(breadth + 1, -1));
     for (ll i = 0; i <= len; i++)
-        dp[i][i] = 0;
+        dp[i][i] = 1;
+    for (ll i = 0; i <= breadth; i++)
+        dp[0][i] = 0;
     dp[len][breadth] = cutTheRect(len, breadth, dp);
     cout << dp[len][breadth] << endl;
 }

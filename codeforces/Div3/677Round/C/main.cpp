@@ -14,14 +14,37 @@ ll cases = 1, n, sum, m;
 ll x, y;
 void solveCase(ll testCaseNum)
 {
+    cin >> n;
+    vector<ll> pirahnas(n + 2, mod);
+    ll maxValue = 0, ans = -1;
+    for (ll i = 1; i <= n; i++)
+    {
+        cin >> pirahnas[i];
+        maxValue = max(pirahnas[i], maxValue);
+    }
+    for (ll i = 1; i <= n; i++)
+    {
+        if (pirahnas[i] == maxValue)
+        {
+            if (pirahnas[i - 1] < pirahnas[i])
+            {
+                ans = i;
+                break;
+            }
+            else if (pirahnas[i + 1] < pirahnas[i])
+            {
+                ans = i;
+                break;
+            }
+        }
+    }
+    cout << ans << endl;
 }
 
 int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    freopen("TestCasesInput.txt", "r", stdin);
-    // freopen("TestCaseOutput.txt", "w", stdout);
     cin >> cases;
     for (ll t = 1; t <= cases; t++)
     {

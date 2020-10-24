@@ -9,23 +9,37 @@ ll max(ll x, ll y) { return (x > y) ? x : y; }
 ll min(ll x, ll y) { return (x > y) ? y : x; }
 #define mod 1000000007
 #define precision(precision) cout << fixed << setprecision(precision)
-#define printTestCaseNum(x) cout << "Case #" << x << ": "
 ll cases = 1, n, sum, m;
 ll x, y;
-void solveCase(ll testCaseNum)
+void solveCase()
 {
+    cin >> n;
+    ll last = 0, curr;
+    bool found = false;
+    cin >> last;
+    for (ll i = 0; i < n - 1; i++)
+    {
+        cin >> curr;
+        found |= (last != curr);
+        last = curr;
+    }
+    if (found)
+    {
+        cout << 1 << endl;
+    }
+    else
+    {
+        cout << n << endl;
+    }
 }
 
 int main()
 {
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-    freopen("TestCasesInput.txt", "r", stdin);
-    // freopen("TestCaseOutput.txt", "w", stdout);
+
     cin >> cases;
     for (ll t = 1; t <= cases; t++)
     {
-        solveCase(t);
+        solveCase();
     }
     return 0;
 }

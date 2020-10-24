@@ -12,16 +12,31 @@ ll min(ll x, ll y) { return (x > y) ? y : x; }
 #define printTestCaseNum(x) cout << "Case #" << x << ": "
 ll cases = 1, n, sum, m;
 ll x, y;
+bool stateOfN(ll state)
+{
+    if (state == 1)
+        return false;
+    if (state == 2)
+        return true;
+    if (state % 2 == 1)
+        return true;
+    else if ((state & (state - 1)) == 0)
+        return false;
+    else if (state % 4 == 0)
+        return true;
+    else
+        return true;
+}
 void solveCase(ll testCaseNum)
 {
+    cin >> n;
+    cout << (stateOfN(n) ? "Ashishgup" : "FastestFinger") << endl;
 }
 
 int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    freopen("TestCasesInput.txt", "r", stdin);
-    // freopen("TestCaseOutput.txt", "w", stdout);
     cin >> cases;
     for (ll t = 1; t <= cases; t++)
     {

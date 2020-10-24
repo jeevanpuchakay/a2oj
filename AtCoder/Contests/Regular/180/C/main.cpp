@@ -1,3 +1,4 @@
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -9,23 +10,27 @@ ll max(ll x, ll y) { return (x > y) ? x : y; }
 ll min(ll x, ll y) { return (x > y) ? y : x; }
 #define mod 1000000007
 #define precision(precision) cout << fixed << setprecision(precision)
-#define printTestCaseNum(x) cout << "Case #" << x << ": "
 ll cases = 1, n, sum, m;
 ll x, y;
-void solveCase(ll testCaseNum)
+void solveCase()
 {
+    ll start = 1, ans = 1, count = 0;
+    cin >> n;
+    while (start <= n)
+    {
+        if (n % start == 0)
+            cout << start << endl;
+        start++;
+    }
 }
 
 int main()
 {
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-    freopen("TestCasesInput.txt", "r", stdin);
-    // freopen("TestCaseOutput.txt", "w", stdout);
-    cin >> cases;
+
+    // cin >> cases;
     for (ll t = 1; t <= cases; t++)
     {
-        solveCase(t);
+        solveCase();
     }
     return 0;
 }
