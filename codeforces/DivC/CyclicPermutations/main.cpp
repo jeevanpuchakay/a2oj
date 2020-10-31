@@ -12,32 +12,31 @@ ll min(ll x, ll y) { return (x > y) ? y : x; }
 #define printTestCaseNum(x) cout << "Case #" << x << ": "
 ll cases = 1, n, sum, m;
 ll x, y;
+ll getNFactMinus2PowerNminus1(ll n)
+{
+    ll factorial = 1, twoPower = 1;
+    for (ll i = 2; i <= n; i++)
+    {
+        factorial *= i;
+        twoPower *= 2;
+        factorial %= mod;
+        twoPower %= mod;
+    }
+    return (factorial - twoPower + mod) % mod;
+}
 void solveCase(ll testCaseNum)
 {
-    cin >> n >> m;
-    ll ans = 0;
-    for (ll i = 0; i < n; i++)
-    {
-        cin >> x;
-        ans += x;
-    }
-    if (ans == m)
-    {
-        cout << "YES" << endl;
-    }
-    else
-    {
-        cout << "NO" << endl;
-    }
+    cin >> n;
+    cout << getNFactMinus2PowerNminus1(n) << endl;
 }
 
 int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    // freopen("TestCasesInput.txt", "r", stdin);
-    // freopen("TestCaseOutput.txt", "w", stdout);
-    cin >> cases;
+    // freopen("input.txt", "r", stdin);
+    // freopen("output.txt", "w", stdout);
+    // cin >> cases;
     for (ll t = 1; t <= cases; t++)
     {
         solveCase(t);

@@ -14,29 +14,28 @@ ll cases = 1, n, sum, m;
 ll x, y;
 void solveCase(ll testCaseNum)
 {
-    cin >> n >> m;
-    ll ans = 0;
-    for (ll i = 0; i < n; i++)
+    string s;
+    cin >> n >> s;
+    ll type_1 = 0, type_0 = 0;
+    for (ll i = 0; i < n - 1; i++)
     {
-        cin >> x;
-        ans += x;
+        if (s[i] == s[i + 1])
+        {
+            if (s[i] == '1')
+                type_1++;
+            else
+                type_0++;
+        }
     }
-    if (ans == m)
-    {
-        cout << "YES" << endl;
-    }
-    else
-    {
-        cout << "NO" << endl;
-    }
+    cout << max(type_1, type_0) << endl;
 }
 
 int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    // freopen("TestCasesInput.txt", "r", stdin);
-    // freopen("TestCaseOutput.txt", "w", stdout);
+    // freopen("input.txt", "r", stdin);
+    // freopen("output.txt", "w", stdout);
     cin >> cases;
     for (ll t = 1; t <= cases; t++)
     {

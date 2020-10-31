@@ -14,30 +14,26 @@ ll cases = 1, n, sum, m;
 ll x, y;
 void solveCase(ll testCaseNum)
 {
-    cin >> n >> m;
-    ll ans = 0;
-    for (ll i = 0; i < n; i++)
+    cin >> n;
+    vector<ll> freq(10, 1);
+    ll pos = 0, currNoOfSequences = 1;
+    while (currNoOfSequences < n)
     {
-        cin >> x;
-        ans += x;
+        currNoOfSequences /= freq[pos];
+        freq[pos]++;
+        currNoOfSequences *= freq[pos];
+        pos = (pos + 1) % 10;
     }
-    if (ans == m)
-    {
-        cout << "YES" << endl;
-    }
-    else
-    {
-        cout << "NO" << endl;
-    }
+    cout << string(freq[0], 'c') + string(freq[1], 'o') + string(freq[2], 'd') + string(freq[3], 'e') + string(freq[4], 'f') + string(freq[5], 'o') + string(freq[6], 'r') + string(freq[7], 'c') + string(freq[8], 'e') + string(freq[9], 's') << endl;
 }
 
 int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    // freopen("TestCasesInput.txt", "r", stdin);
-    // freopen("TestCaseOutput.txt", "w", stdout);
-    cin >> cases;
+    // freopen("input.txt", "r", stdin);
+    // freopen("output.txt", "w", stdout);
+    // cin >> cases;
     for (ll t = 1; t <= cases; t++)
     {
         solveCase(t);

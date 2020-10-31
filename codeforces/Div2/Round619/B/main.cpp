@@ -3,61 +3,71 @@ using namespace std;
 
 typedef long double ld;
 typedef long long int ll;
+#define endl "\n"
 vector<vector<ll>> adjlist;
 ll max(ll x, ll y) { return (x > y) ? x : y; }
 ll min(ll x, ll y) { return (x > y) ? y : x; }
-#define sfor(a, n, i) for (ll i = a; i < n; i++)
-#define rfor(n, a, i) for (ll i = n; i >= a; i--)
 #define mod 1000000007
-#define pb push_back
-#define in insert
-#define mp make_pair
-#define inf mod
-#define bg begin()
-#define ed end()
-#define sz size()
-#define vi vector<ll>
-#define vc vector<char>
-#define vinv vector<vector<ll, ll>>
-#define imap map<ll, ll>
-#define cmap map<char, ll>
-#define smap map<string, ll>
-#define iset set<ll>
-#define bit(x, i) (x & (1 << i))
+#define precision(precision) cout << fixed << setprecision(precision)
+#define printTestCaseNum(x) cout << "Case #" << x << ": "
+ll cases = 1, n, sum, m;
+ll x, y;
+void solveCase(ll testCaseNum)
+{
+    ll ans = INT_MIN, n, thisItrMax, start = INT_MAX, end = -1e9, mid, k;
+    cin >> n;
+    vector<ll> numbers(n);
+    for (ll i = 0; i < n; i++)
+    {
+        cin >> numbers[i];
+    }
+    for (ll i = 0; i < n; i++)
+    {
+        if (numbers[i] != -1)
+            continue;
+        if (i > 0 && numbers[i - 1] != -1)
+        {
+            start = min(start, numbers[i - 1]);
+            end = max(end, numbers[i - 1]);
+        }
+        if (i + 1 < n && numbers[i + 1] != -1)
+        {
+            start = min(start, numbers[i + 1]);
+            end = max(end, numbers[i + 1]);
+        }
+    }
+    k = (start + end) / 2;
+    for (ll i = 0; i < n; i++)
+    {
+        if (numbers[i] == -1)
+            continue;
+        if (i > 0)
+        {
+            ans = max(ans, abs(numbers[i] - (numbers[i - 1] == -1 ? k : numbers[i - 1])));
+        }
+        if (i < n - 1)
+        {
+            ans = max(ans, abs(numbers[i] - (numbers[i + 1] == -1 ? k : numbers[i + 1])));
+        }
+    }
+    if (ans != INT_MIN)
+        cout << ans << " " << k << endl;
+    else
+    {
+        cout << 0 << " " << 1 << endl;
+    }
+}
+
 int main()
 {
-    ll cases;
-    cin>>cases;
-    sfor(0,cases,t){
-        ll n;cin>>n;
-        ll mi=mod,ma=-2;
-        vi a(n,0);
-        sfor(0,n,i){
-            cin>>a[i];
-            if(a[i]<mi&&a[i]!=-1){
-                mi=a[i];
-            }
-            if(ma<a[i])
-            {
-                ma=a[i];
-            }
-        }
-        if(ma==-1){
-            cout<<0<<" "<<0<<endl;continue;
-        }
-        ll rep=(mi+ma)/2,count=-1;
-        if(a[0]==-1)a[0]=rep;
-        sfor(01,n,i)
-        {
-            if(a[i]==-1)
-            a[i]=rep;
-            count=max(count,abs(a[i]-a[i-1]));
-        }
-       // cout<<mi<<" "<<ma<<endl;
-        //sfor(0,n,i)cout<<a[i]<<" ";
-        //cout<<endl;
-       cout<<count<<" "<<rep<<endl;
-        
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    // freopen("input.txt", "r", stdin);
+    // freopen("output.txt", "w", stdout);
+    cin >> cases;
+    for (ll t = 1; t <= cases; t++)
+    {
+        solveCase(t);
     }
     return 0;
 }

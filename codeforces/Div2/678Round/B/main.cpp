@@ -14,20 +14,16 @@ ll cases = 1, n, sum, m;
 ll x, y;
 void solveCase(ll testCaseNum)
 {
-    cin >> n >> m;
-    ll ans = 0;
+    cin >> n;
+    vector<ll> sequence(n + 5, 0);
+    sequence[0] = 1, sequence[1] = 6;
     for (ll i = 0; i < n; i++)
     {
-        cin >> x;
-        ans += x;
-    }
-    if (ans == m)
-    {
-        cout << "YES" << endl;
-    }
-    else
-    {
-        cout << "NO" << endl;
+        for (ll j = 0; j < n; j++)
+        {
+            cout << sequence[(i + j) % n] << " ";
+        }
+        cout << endl;
     }
 }
 

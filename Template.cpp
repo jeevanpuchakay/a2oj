@@ -20,7 +20,7 @@ int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    freopen("TestCasesInput.txt", "r", stdin);
+    // freopen("TestCasesInput.txt", "r", stdin);
     // freopen("TestCaseOutput.txt", "w", stdout);
     cin >> cases;
     for (ll t = 1; t <= cases; t++)

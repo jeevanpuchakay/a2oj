@@ -3,103 +3,66 @@ using namespace std;
 
 typedef long double ld;
 typedef long long int ll;
+#define endl "\n"
 vector<vector<ll>> adjlist;
 ll max(ll x, ll y) { return (x > y) ? x : y; }
 ll min(ll x, ll y) { return (x > y) ? y : x; }
-#define sfor(a, n, i) for (ll i = a; i < n; i++)
-#define rfor(n, a, i) for (ll i = n; i >= a; i--)
 #define mod 1000000007
-#define pb push_back
-#define in insert
-#define mp make_pair
-#define inf mod
-#define bg begin()
-#define ed end()
-#define sz size()
-#define vi vector<ll>
-#define vc vector<char>
-#define vinv vector<vector<ll>>
-#define imap map<ll, ll>
-#define cmap map<char, ll>
-#define smap map<string, ll>
-#define iset set<ll>
-#define bit(x, i) (x & (1 << i))
-int main()
+#define precision(precision) cout << fixed << setprecision(precision)
+#define printTestCaseNum(x) cout << "Case #" << x << ": "
+ll cases = 1, n, sum, m;
+ll x, y;
+ll getMaxSubStrWithAtmostKInvalidChars(string &s, char matchChar, ll noOfWildCards)
 {
-    ll n;
-    ll k;
-    ll ans = 0;
-    cin >> n >> k;
-    vi pos;
-    string s;
-    cin >> s;
-    ll l = 0, r = 1;
-    if (n == 1)
+    ll noOfWildCardsUsed = 0, leftEnd = -1, ans = 0;
+    // cout << matchChar << endl;
+    for (ll i = 0; i < n; i++)
     {
-        cout << 1 << endl;
-        return 0;
-    }
-    ll count = 0;
-    ll as = 0, bs = 0;
-    sfor(0, n, i)
-    {
-        if (s[i] == 'a')
-            as++;
-        else
-            bs++;
-    }
-    ll start = 0;
-
-    if ((!as) || (!bs))
-    {
-        cout << n << endl;
-        return 0;
-    }
-    char check = as > bs ? 'b' : 'a';
-    while (start < n && check != s[start])
-        start++;
-    l = start, r = start;
-    // ll ans = 0;
-    count = 1;
-    ll prevL = l;
-    //cout<<"start "<<start<<" check "<<check<<endl;
-    if (!k)
-    {
-        ll last = -1, cont = 0;
-        for (ll i = 0; i < n; i++)
+        if (s[i] != matchChar && noOfWildCardsUsed < noOfWildCards)
         {
-            if (s[i] == check)
+            noOfWildCardsUsed++;
+        }
+        else if (s[i] != matchChar)
+        {
+            while (leftEnd + 1 <= i && noOfWildCardsUsed >= noOfWildCards)
             {
-                cont = max(cont, i - last);
-                last = i;
+                /* code */
+                if (noOfWildCardsUsed > 0 && s[leftEnd + 1] != matchChar)
+                {
+                    noOfWildCardsUsed--;
+                }
+                leftEnd++;
+            }
+            if (noOfWildCards > 0)
+            {
+                noOfWildCardsUsed++;
             }
         }
-        cont = max(cont, n - last - 1);
-        cout << cont << endl;
-        return 0;
+        if (leftEnd + 1 <= i)
+        {
+            ans = max(ans, i - leftEnd);
+        }
+        // cout << "LeftEnd=" << leftEnd + 1 << " i=" << i << " ans=" << ans << " usedCards=" << noOfWildCardsUsed << endl;
     }
-    while (r < n && l < n)
-    {
-        /* code */
-        while (count <= k && r < n)
-        {
-            /* code */ r++;
-            if (r < n && s[r] == check)
-                count++;
-        }
-        if (l == start)
-        {
-            ans = max(ans, r);
-        }
-        else
-        {
-            ans = max(ans, r - prevL);
-        }
-        prevL = l + 1;
-        l++;
-        while (l < n && s[l] != check)
-            l++;
-    }
+    return ans;
+}
+void solveCase(ll testCaseNum)
+{
+    string s;
+    cin >> n >> m >> s;
+    cout << max(getMaxSubStrWithAtmostKInvalidChars(s, 'a', m), getMaxSubStrWithAtmostKInvalidChars(s, 'b', m)) << endl;
+}
 
-    cout << ans;
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    // freopen("input.txt", "r", stdin);
+    // freopen("output.txt", "w", stdout);
+    // cin >> cases;
+    for (ll t = 1; t <= cases; t++)
+    {
+        solveCase(t);
+    }
+    return 0;
 }

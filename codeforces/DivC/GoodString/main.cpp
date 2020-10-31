@@ -12,31 +12,45 @@ ll min(ll x, ll y) { return (x > y) ? y : x; }
 #define printTestCaseNum(x) cout << "Case #" << x << ": "
 ll cases = 1, n, sum, m;
 ll x, y;
-void solveCase(ll testCaseNum)
+ll matchIAndJ(int odd, int even, string &s)
 {
-    cin >> n >> m;
     ll ans = 0;
     for (ll i = 0; i < n; i++)
     {
-        cin >> x;
-        ans += x;
+        if (s[i] - '0' == odd)
+        {
+            swap(odd, even);
+            ans++;
+        }
     }
-    if (ans == m)
+    if (ans % 2 == 1 && odd != even)
     {
-        cout << "YES" << endl;
+        ans--;
     }
-    else
+    return ans;
+}
+void solveCase(ll testCaseNum)
+{
+    string s;
+    cin >> s;
+    n = s.size();
+    ll ans = INT_MAX;
+    for (int i = 0; i < 10; i++)
     {
-        cout << "NO" << endl;
+        for (int j = 0; j < 10; j++)
+        {
+            ans = min(ans, n - matchIAndJ(i, j, s));
+        }
     }
+    cout << ans << endl;
 }
 
 int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    // freopen("TestCasesInput.txt", "r", stdin);
-    // freopen("TestCaseOutput.txt", "w", stdout);
+    // freopen("input.txt", "r", stdin);
+    // freopen("output.txt", "w", stdout);
     cin >> cases;
     for (ll t = 1; t <= cases; t++)
     {

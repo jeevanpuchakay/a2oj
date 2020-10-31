@@ -14,14 +14,11 @@ ll cases = 1, n, sum, m;
 ll x, y;
 void solveCase(ll testCaseNum)
 {
-    cin >> n >> m;
-    ll ans = 0;
-    for (ll i = 0; i < n; i++)
-    {
-        cin >> x;
-        ans += x;
-    }
-    if (ans == m)
+    cin >> x >> y;
+
+    bool possible = false;
+
+    if ((y + 1) / float(2) <= x)
     {
         cout << "YES" << endl;
     }
@@ -35,8 +32,8 @@ int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    // freopen("TestCasesInput.txt", "r", stdin);
-    // freopen("TestCaseOutput.txt", "w", stdout);
+    // freopen("input.txt", "r", stdin);
+    // freopen("output.txt", "w", stdout);
     cin >> cases;
     for (ll t = 1; t <= cases; t++)
     {

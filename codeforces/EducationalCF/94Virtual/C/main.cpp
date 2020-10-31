@@ -13,93 +13,69 @@ ll cases = 1, n, sum, m;
 ll x, y;
 void solveCase()
 {
-    string s, ans;
+    string s, ans, reCreate = "";
     cin >> s >> x;
     n = s.size();
     ans = string(n, '2');
     bool possible = true;
-    for (ll i = 0; i < n && possible; i++)
+    for (ll i = 0; i < n; i++)
     {
         if (s[i] == '0')
         {
-            if ((i - x) >= 0)
-            {
-                if (ans[i - x] == '2')
-                {
-                    ans[i - x] = '0';
-                }
-                else if (ans[i - x] == '1')
-                {
-                    possible = false;
-                }
-            }
             if ((i + x) < n)
             {
-                if (ans[i + x] == '2')
-                {
+                if (ans[i + x] == '2' || ans[i + x] == '0')
                     ans[i + x] = '0';
-                }
-                else if (ans[i + x] == '1')
+                else
                 {
                     possible = false;
+                    break;
+                }
+            }
+            if ((i - x) >= 0)
+            {
+                if (ans[i - x] == '2' || ans[i - x] == '0')
+                    ans[i - x] = '0';
+                else
+                {
+                    possible = false;
+                    break;
                 }
             }
         }
-        else
+    }
+    if (possible)
+        for (ll i = 0; i < n; i++)
         {
-
-            if ((i - x >= 0) && (i + x < n))
+            if (ans[i] == '2')
             {
-                if (ans[i - x] == '2' || ans[i - x] == '1')
-                {
-                    ans[i - x] = '1';
-                }
-                else if (ans[i + x] == '2' || ans[i + x] == '1')
-                {
-                    ans[i + x] = '1';
-                }
-                else
-                {
-                    possible = false;
-                }
+                ans[i] = '1';
             }
-            else if (i - x >= 0)
+        }
+    if (possible)
+    {
+        for (ll i = 0; i < n; i++)
+        {
+            if ((i - x >= 0) && ans[i - x] == '1')
             {
-                if (ans[i - x] == '2' || ans[i - x] == '1')
-                {
-                    ans[i - x] = '1';
-                }
-                else
-                {
-                    possible = false;
-                }
+                reCreate += '1';
+            }
+            else if ((i + x < n) && (ans[i + x] == '1'))
+            {
+                reCreate += '1';
             }
             else
             {
-                if (ans[i + x] == '2' || ans[i + x] == '1')
-                {
-                    ans[i + x] = '1';
-                }
-                else
-                {
-                    possible = false;
-                }
+                reCreate += '0';
             }
         }
-    }
-    for (ll i = 0; i < n; i++)
-    {
-        if (ans[i] == '2')
-            ans[i] = '1';
+        if (reCreate != s)
+            possible = false;
     }
     if (possible)
-    {
         cout << ans << endl;
-    }
     else
-    {
         cout << -1 << endl;
-    }
 }
 
 int main()
