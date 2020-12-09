@@ -60,3 +60,6 @@ test.cpp
 .history
 
 # End of https://www.gitignore.io/api/c++,visualstudiocode
+
+Temp/*
+*.class
