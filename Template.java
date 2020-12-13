@@ -1,15 +1,38 @@
 
 import java.util.*;
 
-public class Template {
+public class Main {
     static Scanner input = new Scanner(System.in);
 
     public static void main(String[] args) {
-        Integer a=Integer.valueOf(34);
-
-        Integer b=Integer.valueOf(34);
-        System.out.println(a==b);
-        System.out.println(a.equals(b));
+        
         input.close();
+    }
+}
+
+class Pair {
+    public int first, second;
+
+    Pair() {
+
+    }
+
+    Pair(int x, int y) {
+        this.first = x;
+        this.second = y;
+    }
+
+}
+
+class PairComparator implements Comparator<Pair> {
+    // sorts by first element in ascending order
+    @Override
+    public int compare(Pair p1, Pair p2) {
+        if (p1.first == p2.first)
+            return p1.second < p2.second ? 1 : -1;
+        else if (p1.first < p2.first) {
+            return 1;
+        }
+        return -1;
     }
 }
