@@ -1,3 +1,4 @@
+package codeforces.Div2.Round654.MagicalSticks;
 
 import java.util.*;
 

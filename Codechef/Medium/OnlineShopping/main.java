@@ -1,3 +1,5 @@
+package Codechef.Medium.OnlineShopping;
+
 // package Codechef.Medium.OnlineShopping;
 
 import java.util.*;

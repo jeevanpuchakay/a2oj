@@ -1,3 +1,5 @@
+package Codechef.Medium.SpiderManJump;
+
 // package Codechef.Medium.SpiderManJump;
 
 import java.util.*;

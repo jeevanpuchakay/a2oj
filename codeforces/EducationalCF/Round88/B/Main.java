@@ -1,3 +1,4 @@
+package codeforces.EducationalCF.Round88.B;
 
 import java.util.*;
 

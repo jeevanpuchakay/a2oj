@@ -1,3 +1,4 @@
+package Codechef.LongChallenges.June2k20.IceCream;
 
 import java.util.*;
 

@@ -1,3 +1,4 @@
+package codeforces.Div2.Round651.A;
 
 import java.util.*;
 

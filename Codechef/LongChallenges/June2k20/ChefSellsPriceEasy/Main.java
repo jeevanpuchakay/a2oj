@@ -1,3 +1,5 @@
+package Codechef.LongChallenges.June2k20.ChefSellsPriceEasy;
+
 import java.util.*;
 
 public class Main {

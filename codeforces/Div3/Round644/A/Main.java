@@ -1,3 +1,5 @@
+package codeforces.Div3.Round644.A;
+
 import java.util.*;
 
 // import jdk.nashorn.internal.parser.Scanner;

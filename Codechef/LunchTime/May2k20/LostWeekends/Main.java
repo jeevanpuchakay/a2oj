@@ -1,3 +1,4 @@
+package Codechef.LunchTime.May2k20.LostWeekends;
 
 import java.util.*;
 

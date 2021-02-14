@@ -1,3 +1,4 @@
+package codeforces.Div2.C.LuckySumOfDigits;
 
 import java.util.*;
 

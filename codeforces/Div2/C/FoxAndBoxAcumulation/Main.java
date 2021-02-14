@@ -1,3 +1,4 @@
+package codeforces.Div2.C.FoxAndBoxAcumulation;
 
 import java.util.*;
 
