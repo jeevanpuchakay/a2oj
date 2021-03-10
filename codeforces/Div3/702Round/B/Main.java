@@ -6,7 +6,29 @@ public class Main {
     static int mod = 1000000007;
 
     public static void main(String[] args) {
-
+        int tt = input.nextInt();
+        while (tt-- > 0) {
+            int n = input.nextInt(), c0 = 0, c1 = 0, c2 = 0, curr, ans = 0;
+            for (int i = 0; i < n; i++) {
+                curr = input.nextInt();
+                if (curr % 2 == 0)
+                    c0++;
+                else if (curr % 2 == 1)
+                    c1++;
+                else
+                    c2++;
+            }
+            if (c2 > c1 && c2 > c0) {
+                if(c0>c1){
+                    ans=Math.max(a, b)
+                }
+            } else if (c1 > c2 && c1 > c0) {
+                ans = ((n / 3 - c2) + 2 * (n / 3 - c0));
+            } else {
+                ans = ((n / 3 - c0) + 2 * (n / 3 - c1));
+            }
+            System.out.println(ans);
+        }
         input.close();
     }
 

@@ -1,3 +1,4 @@
+package Codechef.Div3.BodyMassIndex;
 
 import java.util.*;
 
@@ -6,26 +7,7 @@ public class Main {
     static int mod = 1000000007;
 
     public static void main(String[] args) {
-        int tt = input.nextInt();
-        while (tt-- > 0) {
-            double n = input.nextInt(), last = input.nextInt(), current;
-            int ans = 0;
-            for (int i = 0; i < n - 1; i++) {
-                current = input.nextInt();
-                while ((((float) current) / (last)) > 2) {
-                    last = 2 * last;
-                    ans++;
-                }
-                while (((float) last / current) > 2) {
-                    last = last / 2;
-                    ans++;
-                }
-                last = current;
-                // System.out.println("l " + last + " " + ans);
-            }
-            // System.out.println();
-            System.out.println(ans);
-        }
+        
         input.close();
     }
 
