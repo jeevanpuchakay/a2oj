@@ -27,7 +27,6 @@ public:
         if (node == this->rank[node])
             return node;
         return this->rank[node] = this->findParent(this->rank[node]);
-        //This will sync if there is any chnage in the parent of the group.
     }
     void mergeNodes(int node1, int node2)
     {
@@ -38,10 +37,54 @@ public:
             this->rank[parentOfNode2] = parentOfNode1;
         }
     }
+    bool areNodesInTheSameSet(int node1, int node2)
+    {
+        int parentOfNode1 = this->findParent(node1);
+        int parentOfNode2 = this->findParent(node2);
+        return parentOfNode1 == parentOfNode2;
+    }
 };
 ll cases = 1;
 void solveCase(ll testCaseNum)
 {
+    int n, m1, m2;
+    cin >> n >> m1 >> m2;
+    int u, v;
+    DSU mochaForest(n), dianaForest(n);
+    for (int i = 0; i < m1; i++)
+    {
+        cin >> u >> v;
+        u--, v--;
+        mochaForest.mergeNodes(u, v);
+    }
+    for (int i = 0; i < m2; i++)
+    {
+        cin >> u >> v;
+        u--, v--;
+        dianaForest.mergeNodes(u, v);
+    }
+    int noOfNewEdges = 0;
+    vector<pair<int, int>> newEdges;
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = i + 1; j < n; j++)
+        {
+            if ((mochaForest.areNodesInTheSameSet(i, j) || dianaForest.areNodesInTheSameSet(i, j)) == false)
+            {
+                mochaForest.mergeNodes(i, j);
+                dianaForest.mergeNodes(i, j);
+                noOfNewEdges++;
+                newEdges.push_back({i+1, j+1});
+            }
+        }
+    }
+    cout << noOfNewEdges;
+    for (pair<int, int> edge : newEdges)
+    {
+        cout << "\n"
+             << edge.first << " " << edge.second;
+    }
+    cout << "\n";
 }
 
 int main()
@@ -50,7 +93,7 @@ int main()
     cin.tie(NULL);
     // freopen("TestCasesInput.txt", "r", stdin);
     // freopen("TestCaseOutput.txt", "w", stdout);
-    cin >> cases;
+    // cin >> cases;
     for (ll t = 1; t <= cases; t++)
     {
         solveCase(t);

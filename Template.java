@@ -1,8 +1,6 @@
 
 import java.util.*;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 public class Template {
     static Scanner input = new Scanner(System.in);
     static int mod = 1000000007;
